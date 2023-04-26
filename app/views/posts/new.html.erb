@@ -1,0 +1,32 @@
+<% provide(:title, "New Post") %>
+
+<div class="newpost-container">
+    <%= render 'post_errors' %>
+    <div class="newpost-form">
+
+        <p>Post</p>
+        <%= form_with model: @post, local: true do |form| %>
+            <div class="topic-container input-group">
+                <span class="field-name input-group-addon" id="basic-addon1">Topic</span>
+                <%= select("post", 
+                    "topic_id", 
+                    Topic.all.collect {|t| [ t.name, t.id ] }, 
+                    { include_blank: "----- Select -----" }, 
+                    { class: "select-field form-control"}) 
+                %>
+            </div>
+
+            <div class="title-container input-group">
+                <span class="field-name input-group-addon" id="basic-addon1">Title</span>
+                <%= form.text_field :title, class: "form-control title-textfield", placeholder: "Enter post title here" %>
+            </div>
+
+            <%= form.text_area :content, class: "newpost-textarea", placeholder: "Enter your post here" %>
+            <%= form.hidden_field :user_id, :value => current_user.id %>
+            <%= form.submit "Post", class: "newpost_button form-control" %>
+            <%= link_to "Cancel", home_path, class: "cancel_button form-control" %>
+        <% end %>
+
+    </div>
+</div>
+

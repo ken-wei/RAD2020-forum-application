@@ -1,0 +1,132 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// Body
+body .container {
+    text-align: center;
+    padding: 0;
+    width: 100%;
+    min-width: 1050px;
+}
+
+// Header
+.navbar {
+    border-radius: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+.navbar-header {
+    padding-left: 70px;
+    padding-right: 100px;
+}
+
+.user-account-avatar {
+    max-height: 50px !important;
+    .picture {
+        height: 50px;
+        margin: 0px !important;
+        padding: 5px 10px !important;
+    }
+    .gravatar {
+        height: 40px;
+        width: 40px;
+        border-radius : 20px;
+        margin: 0;
+        padding: 0;
+        vertical-align: middle;
+        padding: auto;
+    }
+}
+
+// Footer 
+html, body {
+    background: rgb(240, 237, 237) !important;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    min-height: 100%;
+    margin-bottom: -100px;
+}
+
+.footer, .push {
+    height: 100px;
+}
+
+footer {
+    display: block;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    background-color: #333333;
+    color: white;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    display: inline-block;
+    padding: 10px;
+}
+
+/* Form Error msg */
+#error_explanation_container {
+    width: 100%;
+    text-align: center;
+}
+
+#error_explanation {
+    display: inline-block;
+    width: 95%;
+    color: red;
+    ul {
+        color: red;
+        margin: 10px 0 10px 0;
+    }
+    .alert {
+        margin-top: 10px;
+        width: 100%;
+    }
+}
+
+.field_with_errors {
+    @extend .has-error;
+    .form-control {
+        color: $state-danger-text;
+    }
+}
+
+// Alert for login errors
+.alert {
+    display: inline-block;
+    width: 65%;
+}
+
+.alert-success, .alert-info {
+    display: inline-block;
+    width: 90%;
+    margin-top: 20px;
+}
+
+.alert-danger {
+    margin-top: 20px;
+}
+
+/* Header Home Button */
+.home-header {
+    border-bottom: 5px red solid;
+    a {
+        padding-bottom: 10px !important; 
+    }
+    a:hover {
+        color: grey !important;
+    }
+}

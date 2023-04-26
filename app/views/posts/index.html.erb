@@ -1,0 +1,49 @@
+<% provide(:title, 'Home') %>
+<div class="home-container">
+    <div class="left-panel">
+        <div class="post-functions">
+            <div class="btn-group">
+                <% css_recent = !currentFilterPostStatus ? 'filter_active' : 'filter_nonactive' %>
+                <%=  link_to "Recent Post", posts_filter_path("recent"),
+                 :class  =>  "#{css_recent} post-button btn btn-default ",
+                 :method => :get %>
+
+                <% css_selected = currentFilterPostStatus ? 'filter_active' : 'filter_nonactive' %>
+                <%=  link_to "Selected Post", posts_filter_path("selected"),
+                 :class  =>  "#{css_selected} post-button btn btn-default ",
+                 :method => :get %>
+                <% if logged_in? %>
+                    <%= link_to "My Setting", myprofile_path(current_user.id), class: "settings-button btn btn-default" %>
+                <% end %>
+            </div>
+            <%= form_tag posts_path, method: :get do %>
+                <%= text_field_tag :keyword, params[:keyword], { placeholder: "Search", class: "form-control search-input" } %>
+                <%= submit_tag "Search", style: "position: absolute; left: -9999px" %>
+            <% end %>
+            <%= link_to "New Post", new_post_path,  class: "new-post btn btn-default" %>
+        </div>
+
+        <div class="forum-post">
+            <% if @posts %>
+                <% @posts.each do |post| %>
+                    <div>
+                        <div class="post-image">
+                            <%= link_to gravatar_for(post.user), user_path(post.user.id) %>
+                        </div>
+                        <div class="post-details">
+                            <h5><%= link_to post.title, post %></h5>
+                            <p class="detail"><%= link_to getUsername(post.user), user_path(post.user.id), class: "userprofile-link" %></p>
+                            <p class="detail"><%= post.created_at %></p>
+                            <p class="detail"><%= post.topic.name %></p>
+                            <p class="view-count"><span class="glyphicon glyphicon-eye-open"></span><span><%= post.view %></span></p>
+                            <p class="comment-count"><span class="glyphicon glyphicon-comment"></span><span><%= post.comments.count %></span></p>  
+                        </div>
+                    </div> 
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+
+    <%= render 'sidebar' %>
+
+</div>

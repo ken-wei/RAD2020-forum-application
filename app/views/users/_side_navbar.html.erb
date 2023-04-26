@@ -1,0 +1,21 @@
+<div class="settings-selection-sidebar">
+    <%= link_to myprofile_path(@user.id) , class: "#{active_sidebar(myprofile_path(@user.id))} profile-link" do %>
+        <span class="glyphicon glyphicon-send"></span>  My Profile
+    <% end %>
+
+    <%= link_to myposts_path(@user.id), class: "#{active_sidebar(myposts_path(@user.id))} profile-link" do %>
+        <span class="glyphicon glyphicon-user"></span> My Posts
+    <% end %>
+
+    <%= link_to mycomments_path(@user.id), class: "#{active_sidebar(mycomments_path(@user.id))} profile-link" do %>
+        <span class="glyphicon glyphicon-comment"></span> My Comments
+    <% end %>
+
+    <%= link_to commentstome_path(@user.id), class: "#{active_sidebar(commentstome_path(@user.id))} profile-link" do %>
+        <span class="glyphicon glyphicon-ok-sign"></span> Comments to Me
+    <% end %>
+
+    <%= link_to setting_path(@user.id), class: "#{active_sidebar_setting} profile-link" do %>
+        <span class="glyphicon glyphicon-cog"></span> Setting
+    <% end %>
+</div>

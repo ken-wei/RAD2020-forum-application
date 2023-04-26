@@ -1,0 +1,12 @@
+<div class="profile-recentcomments">
+    <h5>Recent comments:</h5>
+    <div class="recent-comment">
+        <% @user.comments.order("created_at desc").each do |comment| %>
+            <p class="comment-title">
+                <%= comment.created_at.to_date %> in 
+                <%= link_to comment.post.title, post_path(comment.post.id) %> comment: 
+            </p>
+            <p class="comment-content"><%= comment.content %></p>
+        <% end %>       
+    </div>
+</div>

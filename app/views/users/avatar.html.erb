@@ -1,0 +1,32 @@
+<% provide(:title, "Upload Avatar")%>
+<div class="settings-container">
+    
+    <%= render 'side_navbar' %>
+
+    <div class="settings-content" id="settings-partial">
+        <div class="setting-container">
+            
+            <%= render 'setting_header'%>
+
+            <%= render 'shared/error_messages' %>
+
+            <div id="setting-form">
+                <%= form_with url: avatar_update_path(@user.id), method: :put, local: true do |form| %>
+                    <div class="avatar-container">
+                        <label class="btn btn-default">
+                            <span class="glyphicon glyphicon-cloud-upload"> Gravatar
+                            <span style="display:none;">
+                                <%= form.file_field :avatar %>
+                            </span>
+                        </label>
+                        <div class="upload-descp">no larger than 2mb</div>
+
+                        <%= gravatar_for(@user) %>
+                    </div>
+                    <%= form.submit "Confirm", class: "confirm_button form-control" %>
+                <% end %>
+            </div>
+
+        </div>
+    </div>
+</div>

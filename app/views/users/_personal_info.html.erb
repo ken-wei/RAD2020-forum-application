@@ -1,0 +1,40 @@
+<div class="personal-info-container">
+    
+
+    <div class="info-form-container">
+        <h5>You can modify your contact details below</h5>
+
+        <%= render 'shared/error_messages' %>
+        
+        <%= form_with model: @user, url: userinfo_update_path(@user.id), local: true do |form| %>
+            <div class="personal-container input-group">
+                <span class="info-title input-group-addon" id="basic-addon1">Username</span>
+                <%= form.text_field :username, class: "form-control personal-form" %>
+            </div>
+
+            <div class="personal-container input-group">
+                <span class="info-title input-group-addon" id="basic-addon1">Email</span>
+                <%= form.text_field :email, class: "form-control personal-form" %>
+            </div>
+
+            <div class="personal-container input-group">
+                <span class="info-title  input-group-addon" id="basic-addon1">Mobile</span>
+                <%= form.text_field :mobile, class: "form-control personal-form" %>
+            </div>
+
+            <div class="personal-container input-group">
+                <span class="info-title  input-group-addon" id="basic-addon1">City</span>
+                <%= form.text_field :city, class: "form-control personal-form" %>
+            </div>
+
+            <div class="intro-container input-group">
+                <span class="intro-title  input-group-addon" id="basic-addon1">Personal Introduction</span>
+                <%= form.text_area :introduction, class: "intro-form form-control" %>
+            </div>
+
+            <%= form.submit "Confirm", class: "confirm_button form-control" %>
+
+        <% end %>
+    </div>
+
+</div>

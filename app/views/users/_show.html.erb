@@ -1,0 +1,43 @@
+<div class="profile-header">
+    <%= gravatar_for_profile(@user) %>
+    <div class="profile-username"><%= getUsername(@user) %></div>
+    <div class="profile-date">
+        <span class="glyphicon glyphicon-time"></span> 
+        <%= @user.created_at.to_date %>
+    </div>
+    <div class="profile-city">
+        <span class="glyphicon glyphicon-map-marker"></span>
+        <%= @user.city ? @user.city : "Not Set" %>
+    </div> 
+</div>
+
+<div class="profile-body">
+    <div class="profile-recentposts">
+        <h5>Recent posts:</h5>
+        <% @user.posts.each do |post| %>
+            <div class="user-post">
+                <div class="user-post-title">
+                    <%= link_to post.title, post %>
+                </div>
+                <div class="user-post-date">
+                    <%= post.created_at.to_date %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+
+    <div class="profile-recentcomments">
+        <h5>Recent comments:</h5>
+        <div class="recent-comment">
+            <% @user.comments.order("created_at desc").each do |comment| %>
+                <p class="comment-title">
+                    <%= comment.created_at.to_date %> in 
+                    <%= link_to comment.post.title, post_path(comment.post.id) %> comment: 
+                </p>
+                <p class="comment-content"><%= comment.content %></p>
+            <% end %>
+            
+        </div>
+
+    </div>
+</div>

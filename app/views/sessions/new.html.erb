@@ -1,0 +1,45 @@
+<% provide(:title, "Log in") %>
+<div class="users_form">
+  <h1>Login</h1>
+
+  <%= form_with url: login_path, local: true do |form| %>
+    <div class="form-group row">
+      <%= form.label :email, "Username", class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+        <%= form.text_field :email, placeholder: "Enter your email as username", class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= form.label :password, "Password", class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+        <%= form.password_field :password, placeholder: "Enter your password", class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-2 col-form-label"></div>
+      <div class="col-sm-10" id="remember-forgot">
+        <div class="remember-me">
+          <%= form.label :remember_me, class: "remember-checkbox" do %>
+            <%= form.check_box :remember_me %>
+            <span>remember me</span>
+          <% end %>
+        </div>
+        <div class="forget-pass">
+          <%= link_to "Forgot password?", new_password_reset_path %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= content_tag(:p, "", class: "col-sm-2 col-form-label") %>
+      <div class="col-sm-10">
+        <%= form.submit "Login", class: "submit_button form-control" %>      
+      </div>
+    </div>  
+
+  <% end %>
+
+  <%= link_to "Register?", new_path, class: "btn btn-lg btn primary users-link" %>
+</div>

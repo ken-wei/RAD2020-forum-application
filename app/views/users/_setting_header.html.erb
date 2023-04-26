@@ -1,0 +1,6 @@
+<div class="setting-header">
+    <%= link_to "Personal Info", setting_path(@user.id), class: "#{active_class(['setting', 'update'])} setting-nav" %>
+    <%= link_to "Avatar", avatar_upload_path(@user.id), class: "#{active_class(['avatar', 'updateAvatar'])} setting-nav" %>
+    <%= link_to "Password", password_change_path(@user.id), class: "#{active_class(['password', 'updatePassword'])} setting-nav" %>
+    <%= link_to "Verification", verification_path(@user.id), class: "#{active_class(['verification', 'uploadVerification'])} setting-nav" %>
+</div>

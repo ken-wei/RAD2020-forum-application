@@ -1,0 +1,28 @@
+<% provide(:title, "Comments to me")%>
+<div class="settings-container">
+    
+    <%= render 'side_navbar' %>
+
+    <div class="settings-content" id="settings-partial">
+        <div class="post-comments commentstome-container">
+            <h4 class="comments-tome-title">Comments to me</h4>
+            <% Comment.joins(:post).where(:posts => { :user_id => @user.id }).order("created_at desc").each do |comment| %>
+                <div class="post-comment">
+                    <div class="comment-author">  
+                        <p class="comment-img"><%= link_to gravatar_for(comment.user), user_path(comment.user.id) %></p>
+                        <div class="author-details">
+                            <p class="username">
+                                <%= link_to getUsername(comment.user), user_path(comment.user.id), class: "userprofile-link" %>
+                            </p>
+                            <p class="creation_date"><%= comment.created_at %></p>
+                        </div>
+                    </div>
+                    <div class="post-title">Title: <%= link_to comment.post.title, post_path(comment.post.id) %></div>
+
+                    <div class="content"><%= comment.content %></div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+ 

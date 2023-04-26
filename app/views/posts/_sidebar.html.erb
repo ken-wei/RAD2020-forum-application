@@ -1,0 +1,53 @@
+<div class="right-sidebar">
+   <div class="recent-members">
+       <h5>Recent Members</h5>
+        
+        <% if @users = User.order("last_login desc").limit(12) %>
+            <% @users.each do |user| %>
+                <div class="member">
+                    <div>
+                    <%= link_to gravatar_for(user), user_path(user.id) %>
+                        <p><%= link_to getUsername(user), user_path(user.id), class: "userprofile-link" %></p>
+                    </div>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
+
+    <div class="topic">
+        <h5>Topic</h5>
+        <% Topic.all.order(:name).where.not(name: "News").each do |topic| %>
+            <% toggle_class = isToggled?(topic) ? 'toggled' : 'non-toggled'%>
+            <% if homePageToEnableToggle? %>
+                <%= link_to_if homePageToEnableToggle?, topic.name, 
+                    toggle_topic_path(topic.id), 
+                    :method => :put,
+                    :class => "#{toggle_class}" 
+                %>
+            <% else %>
+                <div class="disabled-toggle <%= toggle_class %>">
+                    <%= topic.name %>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
+
+    <div class="post">
+        <h5>Post</h5>
+        <% Post.all.order(view: :desc).limit(5).each do |post| %>
+            <div class="sidebar-post">
+                <div class="post-title"><%= link_to post.title, post_path(post.id) %></div>
+                <div class="post-view">
+                    <span class="glyphicon glyphicon-eye-open"></span>
+                    <span><%= post.view %></span>
+                </div>
+            </div>  
+        <% end %>
+    </div>
+
+    <div class="links">
+        <h5>Links</h5>
+        <a href="https://www.rmit.edu.au/">RMIT</a>
+        <a href="https://rubyonrails.org/">Rails</a>
+    </div>
+</div>

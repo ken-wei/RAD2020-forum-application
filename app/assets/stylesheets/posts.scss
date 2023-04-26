@@ -1,0 +1,496 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// For left panel of home page
+.left-panel {
+    margin-right: 10px;
+    min-width: 600px;
+}
+
+.home-container {
+    margin-top: 20px;
+}
+
+.home-container .left-panel {
+    display: inline-block;
+    width: 65%;
+    min-width: 610px;
+    text-align: left;
+}
+
+// Right sidebar for home page
+.right-sidebar {
+    display: inline-block;
+    width: 30%;
+    min-width: 340px;
+    max-width: 340px;
+    vertical-align: top;
+}
+
+// Post function container
+.post-functions {
+    margin: 5px 0px 20px 0px;
+
+    /* Search form */
+    form {
+        width: 170px;
+        display: inline-block;
+    }
+}
+
+// Styling the buttons
+.post-button, .search-input, .new-post{
+    display: inline-block !important;
+}
+
+.new-post {
+    float: right;
+}
+
+/* Filter selected post or recent post */
+.filter_active,
+.filter_active:hover, 
+.filter_nonactive:active, 
+.filter_nonactive:focus,
+.filter_nonactive:hover,
+.settings-button:active,
+.settings-button:focus, 
+.settings-button:hover  {
+    outline: none !important;
+    color: rgb(209, 144, 22) !important;
+    background: white !important;
+}
+
+// Set the size of each button
+.post-button {
+    width: 125px;
+}
+
+.btn-group {
+    margin: 0px;
+}
+
+// search-input 
+.search-input {
+    height: 34px;
+    width: 150px;
+    min-width: 150px;
+    max-width: 150px;
+    border-radius: 2px;
+    box-sizing: border-box;
+    margin: 0px;
+    vertical-align: middle !important;
+}
+
+// Style the new post button
+.new-post {
+    background-color: rgb(26, 168, 114) !important;
+    color: white !important;
+    vertical-align: center !important;
+}
+
+// Style the forum posts div
+.forum-post div{
+    width: 100%;
+    background-color: white;
+    margin: 2px;
+}
+
+.forum-post img {
+    width: 50px;
+    height: 50px;
+}
+
+// Style for each post
+.post-image {
+    text-align: center;
+    display: inline-block;
+    min-width: 70px;
+    max-width: 10%;
+}
+
+.post-details p, .post-details {
+    display: inline-block;
+}
+
+.detail {
+    padding-right: 10px;
+}
+
+/* User link to profile */
+.userprofile-link:hover {
+    text-decoration: none;
+    color: orange;
+}
+
+.userprofile-link {
+    color: black;
+}
+
+/* Comment count and view count */
+.comment-count, .view-count {
+    float:right;
+    padding: 1px;
+    min-width: 60px;
+}
+
+.comment-count span, .view-count span {
+    vertical-align: middle;
+    padding: 1px;
+}
+
+.post-details {
+    max-width: 85%;
+    min-width: 500px;
+    vertical-align: middle;
+}
+
+// Style right-sidebar
+.recent-members, .topic, .post, .links {
+    background-color: white;
+    margin-bottom: 20px;
+}
+
+.recent-members img, .recent-members p,
+.recent-members h5, .member{
+    display: inline-block;
+}
+
+.member {
+    width: 80px;
+    height: 100px;
+}
+
+.recent-members img {
+    height: 60px;
+    width: 60px;
+}
+
+/* Style all the title for sidebar */
+.recent-members h5, .topic h5, .post h5, .links h5 {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px 10px 10px 20px;
+    border-left: 5px solid red;
+    text-align: left;
+    background-color: rgb(248, 245, 245)
+}
+
+/* Topic toggle styling */
+.toggled, .non-toggled:focus, .non-toggled:active, .non-toggled:hover {
+    text-decoration: none !important;
+    border: 1px solid orange !important;
+    border-radius: 10px;
+    outline: none;
+    background-color: rgb(236, 227, 227);
+}
+
+.non-toggled, .toggled {
+    display: inline-block;
+    border-radius: 10px;
+    border: 1px solid rgb(231, 226, 226);
+    padding: 5px;
+    margin: 5px;
+    width: 65px;
+}
+
+/* Links Style*/
+.links a {
+    display: inline-block;
+    border-radius: 10px;
+    border: 1px solid rgb(231, 226, 226);
+    padding: 5px;
+    margin: 5px;
+    width: 65px;
+    outline: none;
+}
+
+.links a:hover {
+    border: 1px solid orange;
+    text-decoration: none;
+}
+
+/* Style the link <a> tag for posts title */
+.post-details h5 a {
+    color: black;
+} 
+
+.post-details h5 a:hover {
+    color: orange;
+    text-decoration: none;
+}
+
+/*  Style the posts in the right sidebar section */
+.sidebar-post {
+    height: 20px;
+    margin: 5px;
+}
+.post-title {
+    width: 70%;
+    font-size: 12px;
+    overflow: hidden;
+    text-align: left;
+    height: 20px;
+    white-space: nowrap;
+    vertical-align: middle;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.post-view {
+    width: 10%;
+    min-width: 70px;
+    font-size: 12px;
+    height: 20px;
+    text-align: left;
+    vertical-align: middle;
+    margin-left: 3px;
+}
+
+.post-title, .post-view {
+    display: inline-block;
+}
+
+/* View count in the mini post section */
+.post-view span {
+    vertical-align: middle;
+    padding-right: 1px; 
+}
+
+/**
+ * 
+ *  NEW POST PAGE
+ *
+ */
+.newpost-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.newpost-form {
+    display: inline-block;
+    width: 95%;
+    text-align: left;
+}
+
+/* The title (Post)  */
+.newpost-form p {
+    border-left: 5px green solid;
+    background-color: rgb(231, 221, 221);
+    text-align: left;
+    padding: 10px;
+    padding-left: 20px;
+    margin: 5px 0 5px 0;
+    font-weight: 0;
+}
+
+/* Style for the input group */
+.newpost-form .input-group {
+    margin: 10px 0;
+}
+
+.topic-container .select-field {
+    border-radius: 0 !important;
+    width: 200px !important;
+}
+
+/* Input Field title */
+.field-name {
+    border-radius: 0px !important;
+    width: 100px !important;
+}
+
+/* Select field */
+.select-field {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+}
+
+/*  titlte  text field */
+.title-textfield {
+    border-radius: 0px !important;
+}
+
+/* Continer for title input field */
+.title-container {
+    width: 100%;
+}
+
+/* text area */
+.newpost-textarea {
+    width: 100%;
+    resize: vertical;
+    height: 300px;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+
+/* Post button and Cancel button */
+.newpost_button, .cancel_button {
+    display: inline-block !important;
+    margin-right: 5px;
+    width: 100px !important;
+    text-align: center;
+    border-radius: 0px !important;
+}
+
+.newpost_button {
+    background-color: rgb(32, 146, 66) !important;
+    color: white !important;
+}
+
+/*
+ * Styling in show.html.erb (Single Post Display and Comments)
+ **/ 
+.show-post-container {
+    width: 100%;
+    text-align: center;
+}
+
+.single-post-container {
+    display: inline-block;
+    min-width: 600px;
+    width: 65%;
+    background-color: white;
+    padding: 15px;
+    margin-right: 10px;
+    /* Post title */
+    h3 {
+        width: 100%;
+        text-align: left;
+    }
+}
+
+/* Post view count topic name */
+.single-post-header {
+    width: 100%;
+    text-align: left;
+    margin: 10px 0;
+    .topic {
+        background: grey;
+        color: white;
+        width: 100px;
+        padding: 5px;
+        margin: 0px;
+        text-align: center;
+        vertical-align: middle;
+    }
+    .count, .view {
+        float: right;
+    }
+    p {
+        vertical-align: middle;
+        display: inline-block;
+       
+    }
+}
+
+/* Post Authoer and date */
+.post-author {
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    background-color: rgb(240, 237, 237);
+    img {
+        border-radius: 30px;
+        height: 50px;
+        width: 50px;
+    }
+    p {
+        display: inline-block;
+        padding-right: 5px;
+        margin: 0px;
+    }
+    .username {
+        padding-right: 40px;
+        color: rgb(61, 124, 197);
+    }
+}
+
+.post-show-profile {
+    color: rgb(18, 139, 219);
+}
+
+/* Post Content */
+.post-content {
+    width: 100%;
+    margin: 15px 0;
+    text-align: left;
+}
+
+/* Comment */
+.comment {
+    text-align: left;
+    .comment-title-wrap {
+        text-align: left;
+        width: 100%;
+        height: 50px;
+        border-bottom: 1px solid rgb(240, 237, 237);
+        margin-bottom: 15px;
+    }
+    /* Comment p */
+    p {
+        padding: 10px;
+        width: 100px;
+        margin: 0px;
+        font-size: 18px;
+        border-bottom: 4px solid rgb(226, 78, 78);
+        // 3px solid rgb(194, 67, 67)
+    }
+    textarea {
+        width: 100%;
+        border-color: rgb(219, 207, 207);
+        resize: vertical;
+        height: 150px;
+    }
+    .post-button {
+        margin-top: 10px;
+        width: 125px;
+        background-color: rgb(38, 126, 180);
+        color: white;
+        border-radius: 0px;
+    }
+    margin-bottom: 25px;
+}
+
+/* Post Comments */
+.post-comments {
+    text-align: left;
+    h4 {
+        text-align: right;
+        width: 100%;
+    }
+    h4, .post-comment {
+        padding: 10px 0;
+    }
+    .post-comment {
+        border-top: 1px solid rgb(240, 237, 237);
+        padding: 10px 0;
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 30px;
+            margin-right: 5px;
+        }
+    }
+    .comment-author {
+        width: 300px;
+        padding: 10px 0;
+        .comment-img, .author-details {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+}
+
+.username {
+    color: rgb(38, 126, 180) !important;
+}
+.creation_date {
+    color: grey !important;
+}

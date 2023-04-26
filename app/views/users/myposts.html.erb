@@ -1,0 +1,18 @@
+<% provide(:title, "My Posts")%>
+<div class="settings-container">
+    
+    <%= render 'side_navbar' %>
+
+    <div class="settings-content" id="settings-partial">
+        <div class="mypost-details">
+            <h5>Posts</h5>
+            <% @user.posts.each do |post| %>
+                
+                <div class="post-section">
+                    <div class="post-header"><%= link_to post.title, post %></div>
+                    <div class="post-date"><%= post.created_at %></div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

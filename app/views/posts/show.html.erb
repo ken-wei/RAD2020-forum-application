@@ -1,0 +1,78 @@
+<%= provide(:title, @post ? @post.title : "Show") %>
+
+<div class="show-post-container">
+    <div class="single-post-container">
+        <h3><%= @post.title %></h3>
+        <div class="single-post-header">
+            <p class="topic"><%= @post.topic.name %><p>
+            <p class="comment-count count"><span class="glyphicon glyphicon-comment"></span><span><%= @post.comments.count %></span></p>  
+            <p class="view view-count"><span class="glyphicon glyphicon-eye-open"></span><span id="view-count"><%= @post.view %></span></p>
+        </div>
+
+        <div class="post-author">
+            <p><%= link_to gravatar_for(@post.user), user_path(@post.user) %></p>
+            <p class="username"><%= link_to getUsername(@post.user), user_path(@post.user.id), class: "userprofile-link post-show-profile" %></p>
+            <p><%= @post.created_at %></p>
+        </div>
+
+        <div class="post-content">
+            <%= @post.content %>
+        </div>
+
+        <div class="comment">
+            <div class="comment-title-wrap">
+                <p>Comment</p>
+            </div>
+
+            <%= form_with model: Comment.new, url: post_comments_path(@post), local: true do |f| %>
+                <%= f.text_area :content, required: true %>
+                <%= f.submit "Post", class: "post-button form-control" %>
+            <% end %>
+        </div>
+
+        <div class="post-comments">
+            <h4><%= @post.comments.count %> Comments</h4>
+            <% if @post.comments.count > 0 %>
+                <% @post.comments.each do |comment| %>
+                    <div class="post-comment">
+                        <div class="comment-author">  
+                            <p class="comment-img"><%= link_to gravatar_for(comment.user), user_path(comment.user.id) %></p>
+                            <div class="author-details">
+                                <p class="username"><%= link_to getUsername(comment.user), user_path(comment.user.id), class: "userprofile-link post-show-profile" %></p>
+                                <p class="creation_date"><%= comment.created_at %></p>
+                            </div>
+                        </div>
+                        
+                        <div class="content"><%= comment.content %></div>
+                    </div>
+                <% end %>
+            <% end %>
+        </div>   
+    </div>
+
+    <%= render 'sidebar' %>
+</div>
+
+<%# Javascript for live view count (Updates the partial every 3 seconds) %>
+<script type="text/javascript">
+
+    var refreshID;
+
+    $(document).ready(function () {
+        // will call refreshPartial every 3 seconds
+        refreshID = setInterval(refreshPartial, 3000)
+
+    });
+
+    // calls action refreshing the partial
+    function refreshPartial() {
+        $.ajax({
+            url: "<%= @post.id %>/view_count"
+        })
+    }
+    // Clear the timeout when links are clicked
+    $(document).on('turbolinks:before-cache turbolinks:before-render', function() {
+        clearTimeout(refreshID);
+    });
+
+</script>
